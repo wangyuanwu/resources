@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<HEAD>
+    <title>test</title>
+    <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="js/wxtool.js"></script>
+</HEAD>
+<body onbeforeunload="RunOnBeforeUnload()"  onunload="RunOnUnload()">
+
+<script>
+
+    function RunOnBeforeUnload() {
+        window.event.returnValue = '关闭浏览器将退出系统.';
+        console.log("hello!");
+        var noCookie =cys.getCookie("testcookie");
+        if(noCookie == ""){
+            console.log("cookie is disappear!");
+            cys.setStorage("number", 11);
+        }
+    }
+
+    function RunOnUnload() {
+        var noCookie =cys.getCookie("testcookie");
+        if(noCookie == ""){
+            console.log("cookie is disappear!");
+            cys.setStorage("number", 23);
+        }
+    }
+
+</script>
+
+</body>
+</html>
